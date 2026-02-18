@@ -442,4 +442,144 @@ function rollForLoot() {
     alert("Congratulations! You get the " + randomGun);
 }
 </script>
+<button class="btn" onclick="startQuiz()" style="width: 100%; margin-top: 20px; background-color: #4b5320; color: #9da88d; border: 2px solid #2a2e11; padding: 20px; font-size: 20px; cursor: pointer;">
+    [ COMMENCE TACTICAL KNOWLEDGE TEST ]
+</button>
+
+<div id="quiz-container" style="display: none; margin-top: 30px; padding: 30px; background: #1a1a1a; border: 1px solid #4b5320; color: #dcdcdc; font-family: 'Courier New', monospace;">
+    <h2 id="quiz-question" style="color: #9da88d;"></h2>
+    <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+        </div>
+    <p id="quiz-feedback" style="margin-top: 20px; font-weight: bold;"></p>
+</div>
+
+<script>
+const quizData = [
+    {
+        q: "Which weapon is known for its 7.62x51mm NATO power and high recoil in 1953?",
+        options: ["MP5", "FN FAL", "G18C", "M9 Bayonet"],
+        correct: "FN FAL"
+    },
+    {
+        q: "The HK416 is often preferred over the M4A1 because of its:",
+        options: ["Lower Cost", "Better Ergonomics", "Slower Fire Rate", "Bayonet Attachment"],
+        correct: "Better Ergonomics"
+    },
+    {
+        q: "Which 9mm weapon has a 'Full Auto' switch that makes it a pocket-sized beast by civilian standards?",
+        options: ["MK-14", "M9 Bayonet", "G18C", "FN FAL"],
+        correct: "G18C"
+    },
+     {
+        q: "The Gas Piston of the HK416 came from which gun?",
+        options: ["G36", "G3", "G18C", "GPMG"],
+        correct: "G36"
+    },
+     {
+        q: "Which gun was used during one of the U.K.'s hostage crisis situation which was also used to mag dump a terrorist?",
+        options: ["MK-14", "M9A3", "G18C", "MP5"],
+        correct: "MP5"
+    },
+     {
+        q: "How operators mag dumpped the fallen terrorist?",
+        options: ["2", "4", "3", "4"],
+        correct: "2"
+    },
+     {
+        q: "How many mag did each operator use?",
+        options: ["1", "2", "3", "4"],
+        correct: "1"
+    },
+     {
+        q: "Why did they only use one mag?",
+        options: ["Because it's all what they have.", "Because they have to save munitions.", "Because of overheating issues.", "Because of the Two Tap ROE. "],
+        correct: "Because it's all what they have."
+    },
+     {
+        q: "How guns were there mentioned in this website?",
+        options: ["IDK", "3", "5", "(k^2)-(k^3)=12. Find k."],
+        correct: "(k^2)-(k^3)=12. Find k."
+    },
+    {
+        q: "What is more reliable?",
+        options: ["M9 Bayonet", "A smoothbore musket with no baynet", "Amber from Genshin Impact", "Among Us Plushie from Madrid."],
+        correct: "M9 Bayonet"
+    },
+    {
+        q: "Why is the M9 Bayonet more reliable than the other options?",
+        options: ["Because the question was biased.", "Because the author is a realist.", "Because the publisher is into making small details when it comes to making stories because he loves making stories and novels in general.", "Because cold hard steel never lies unless it's broken."],
+        correct: "Because cold hard steel never lies unless it's broken."
+    }
+];
+
+let currentQuestion = 0;
+let score = 0; // Added a score tracker!
+
+function startQuiz() {
+    document.getElementById('quiz-container').style.display = 'block';
+    currentQuestion = 0;
+    score = 0;
+    showQuestion();
+    document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showQuestion() {
+    const qBox = document.getElementById('quiz-question');
+    const optBox = document.getElementById('quiz-options');
+    const feedback = document.getElementById('quiz-feedback');
+    
+    feedback.innerText = "";
+    optBox.innerHTML = "";
+    
+    let data = quizData[currentQuestion];
+    qBox.innerText = `QUESTION ${currentQuestion + 1}: ${data.q}`;
+    
+    data.options.forEach(choice => {
+        const b = document.createElement('button');
+        b.innerText = choice;
+        b.style = "padding: 15px; background: #2a2e11; color: #9da88d; border: 1px solid #4b5320; cursor: pointer; text-align: left; transition: 0.3s;";
+        b.onclick = () => checkAnswer(choice);
+        optBox.appendChild(b);
+    });
+}
+
+function checkAnswer(choice) {
+    const feedback = document.getElementById('quiz-feedback');
+    const isCorrect = choice === quizData[currentQuestion].correct;
+    
+    if (isCorrect) {
+        score++;
+        feedback.style.color = "#00ff00";
+        feedback.innerText = "CORRECT. DATA LOGGED.";
+    } else {
+        feedback.style.color = "#ff4444";
+        feedback.innerText = "INCORRECT. (Correct Intel: " + quizData[currentQuestion].correct + ")";
+    }
+
+    // Disable all buttons so they can't click twice
+    const buttons = document.querySelectorAll('#quiz-options button');
+    buttons.forEach(btn => btn.disabled = true);
+
+    // Proceed regardless of the answer after 2 seconds
+    setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            showQuestion();
+        } else {
+            showFinalResults();
+        }
+    }, 2000);
+}
+
+function showFinalResults() {
+    const qBox = document.getElementById('quiz-question');
+    const optBox = document.getElementById('quiz-options');
+    const feedback = document.getElementById('quiz-feedback');
+
+    qBox.innerText = "EVALUATION COMPLETE.";
+    optBox.innerHTML = `<h3>Final Combat Grade: ${score} / ${quizData.length}</h3>
+                        <p>You have finished the armory orientation.</p>`;
+    feedback.innerText = "";
+}
+</script>
 </html>
