@@ -1,0 +1,445 @@
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<div id="intro-layer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+    
+    <div style="width: 80%; max-width: 900px; aspect-ratio: 16/9; border: 2px solid #4b5320;">
+        <iframe id="yt-player" width="100%" height="100%" 
+    src="https://www.youtube-nocookie.com/embed/rY_aFK8aJoc?autoplay=1&mute=1&controls=0" 
+    referrerpolicy="strict-origin-when-cross-origin"
+    frameborder="0" 
+    allow="autoplay; encrypted-media">
+</iframe>
+    </div>
+
+    <button onclick="endIntro()" style="position: absolute; bottom: 30px; right: 30px; background: transparent; color: #4b5320; border: 1px solid #4b5320; padding: 10px 20px; cursor: pointer; font-family: courier;">
+        [ SKIP INTRO ]
+    </button>
+</div>
+
+<script>
+    // --- SETTINGS ---
+    // How long is the video? (in milliseconds)
+    // 1000 = 1 second. So 5000 is 5 seconds.
+    var videoLength = 60000; 
+    setTimeout(function() {
+        endIntro();
+    }, videoLength);
+
+    function endIntro() {
+        var overlay = document.getElementById("intro-layer");
+        overlay.style.transition = "opacity 1s ease"; // Smooth fade out
+        overlay.style.opacity = "0"; // Make invisible
+        
+        setTimeout(function() {
+            overlay.style.display = "none"; 
+        }, 1000); 
+    }
+</script>
+    <header style="text-align: left; max-width: 1000px; margin: 0 auto 40px auto; padding: 20px; color: #78866b; border-bottom: 1px solid #4b5320;">
+    <h1 style="font-size: 2.5em; text-transform: uppercase; margin-bottom: 5px; color: #9da88d;">Arena Breakout: Meta Armory Archive</h1>
+    <p style="color: #888; font-style: italic; margin-bottom: 20px;">Category: Tactical Intel // Weapon Systems // History & Analysis</p>
+    
+    <p style="color: #dcdcdc; font-size: 1.1em; line-height: 1.6; font-family: sans-serif;">
+        In the high-stakes environment of the Dark Zone, success isn't just about your aim, it's about the steel in your hands. This archive focuses on the <strong>Meta Weapons of Arena Breakout</strong>: (or just the guns that I die to and complain about) the high-performance platforms like the MK-14, FAL, and H416 that dominate the current landscape. 
+        <br><br>
+        I don't just look at in-game recoil patterns; I bridge the gap between virtual combat and real-life history. By analyzing the engineering and historical deployment of these firearms, I want to change the description of getting killed by a meta weapon (such as FN FAL) from 'getting killed by a good gun that the pros use' to 'getting killed by a 70 year old rifle that WAS MEANT TO BE retired from military service long ago'.
+    </p>
+</header>
+<head>
+    <title>Arena Breakout Weapons</title>
+    <style>
+        
+        body {
+            background-color: #1a1a1a; /* Dark tactical gray */
+            color: #dcdcdc; /* Light gray text */
+            font-family: 'Courier New', Courier, monospace; /* Monospace, I NEED THE DAMN MONOSPACE!!! */
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            border: 3px solid #4b5320; /* Army Green border */
+            background-color: #2b2b2b;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1); /* 15 dollars and a quarter... DON'T FORGET THE DAMN QUARTER */
+        }
+
+        h1 {
+            border-bottom: 2px dashed #4b5320;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #78866b; /* Sage green */
+        }
+
+        /* THE IMAGE!!! I NEED AN IMAGE!!! */
+        img {
+            width: 80%;
+            max-width: 600px;
+            border: 5px solid #000;
+            margin: 20px 0;
+        }
+
+        /* THE DETAILS BOX */
+        .specs {
+            background-color: #000;
+            color: #0f0; /* Classic terminal green */
+            padding: 15px;
+            border-left: 5px solid #4b5320;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background-color: #4b5320;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid #6b7340;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #5c6628;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Designated Marksman Rifle: MK-14 EBR</h1>
+
+        <img src="https://i.ytimg.com/vi/PQvuTO5v_BI/sddefault.jpg">
+        
+        <div class="specs">
+            <p>> WEAPON: MK-14 Enhanced Battle Rifle (EBR)</p>
+            <p>> ORIGIN: United States</p>
+            <p>> CALIBER: 7.62×51mm</p>
+            <p>> ROLE: Designated Marksman / CQC</p>
+            <p>> STATUS: OPERATIONAL</p>
+            <p>> TAC. DESC.: The MK-14 Enhanced Battle Rifle (EBR), one of the U.S. military's most beloved 'failed' battle rifles, is a selective-fire military marksman rifle chambered in 7.62x51mm NATO. It was designed to bridge the gap between a standard infantry rifle and a long-range sniper rifle, giving squads a heavy-hitting option that works in tight urban spaces and open fields alike. </p>
+            <p>> VETERAN. DESC.: "It’s got some recoil compared to the M110... suppressors are for women, children, and the Swedes. Let it roar." — traffic_cone_no54 (via Reddit/YouTube community) "It would melt anybody in anything." (Source: Reddit user ImperialSupplies) </p>
+        </div>
+
+        <a href="https://arena-breakout.fandom.com/wiki/MK14" target="_blank" class="btn">
+            Arena Breakout Wiki
+        </a>
+        
+        <a href="https://www.youtube.com/watch?v=O9F6EC-HS0E" target="_blank" class="btn">
+            Watch History Video
+        </a>
+    </div>
+
+
+</body>
+<head>
+    <style>
+        
+        body {
+            background-color: #1a1a1a; /* Dark tactical gray */
+            color: #dcdcdc; /* Light gray text */
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            border: 3px solid #4b5320; /* Army Green border */
+            background-color: #2b2b2b;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1); 
+        }
+
+        h1 {
+            border-bottom: 2px dashed #4b5320;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #78866b; /* Sage green */
+        }
+
+        /* THE IMAGE  */
+        img {
+            width: 80%;
+            max-width: 600px;
+            border: 5px solid #000;
+            margin: 20px 0;
+        }
+
+        /* THE DETAILS BOX */
+        .specs {
+            background-color: #000;
+            color: #0f0; /* Classic terminal green */
+            padding: 15px;
+            border-left: 5px solid #4b5320;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background-color: #4b5320;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid #6b7340;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #5c6628;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="margin-top: 100px;">
+        <h1>Assault Rifle: HK-416</h1>
+
+        <img src="https://i.ytimg.com/vi/DO0H1CZgzyk/sddefault.jpg">
+        
+        <div class="specs">
+            <p>> WEAPON: H416 [Real name: HK-416] (Assault Rifle)</p>
+            <p>> ORIGIN: Germany</p>
+            <p>> CALIBER: 5.56×45mm</p>
+            <p>> ROLE: Assault Rifle / CQC</p>
+            <p>> STATUS: OPERATIONAL</p>
+            <p>> TAC. DESC.: The Heckler & Koch HK416 is an assault rifle chambered in 5.56x45mm NATO. It was specifically designed to fix the reliability issues of the M4/M16 platform. While it looks like an M4, its bolt is actually borrowed from the G36, making it one of the most dependable rifles ever made. </p>
+            <p>> VETERAN. DESC.: "It’s overwhelmingly strong but it has no character. It just beams." —(A disgruntled pro on Reddit) "I took a 650k build... pointed the red dot at him and just let it go. He was completely filled in about one second." —(Describing a high-speed elimination) </p>
+        </div>
+
+        <a href="https://www.imfdb.org/wiki/Arena_Breakout:_Infinite" target="_blank" class="btn">
+            Internet Movie Firearms Database
+        </a>
+        
+        <a href="https://www.youtube.com/watch?v=DO0H1CZgzyk" target="_blank" class="btn">
+            Watch Demonstration Video
+        </a>
+    </div>
+
+</body>
+<head>
+    <style>
+        
+        body {
+            background-color: #1a1a1a; /* Dark tactical gray */
+            color: #dcdcdc; /* Light gray text */
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            border: 3px solid #4b5320; /* Army Green border */
+            background-color: #2b2b2b;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1); 
+        }
+
+        h1 {
+            border-bottom: 2px dashed #4b5320;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #78866b; /* Sage green */
+        }
+
+        /* THE IMAGE  */
+        img {
+            width: 80%;
+            max-width: 600px;
+            border: 5px solid #000;
+            margin: 20px 0;
+        }
+
+        /* THE DETAILS BOX */
+        .specs {
+            background-color: #000;
+            color: #0f0; /* Classic terminal green */
+            padding: 15px;
+            border-left: 5px solid #4b5320;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background-color: #4b5320;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid #6b7340;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #5c6628;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="margin-top: 100px;">
+        <h1>Tryhard's Battle Rifle: FN FAL</h1>
+
+        <img src="https://i.ytimg.com/vi/VPQHX08ESzs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBZNpxJ-IKSei9I5LFgROYpiOkpwA">
+        
+        <div class="specs">
+            <p>> WEAPON: FN FAL (Assault Rifle)</p>
+            <p>> ORIGIN: Belgium</p>
+            <p>> CALIBER: 7.62×51mm</p>
+            <p>> ROLE: Battle Rifle / Mid Range (But the player use it with a shortened barrel and three cans of Chinese Beer)</p>
+            <p>> STATUS: OPERATIONAL (Used by B.O.P.E)</p>
+            <p>> TAC. DESC.: The FN FAL (Fusil Automatique Léger) is a gas-operated battle rifle chambered in 7.62x51mm NATO. Developed in Belgium during the Cold War, it earned its reputation for being incredibly reliable and simple to maintain, leading to its adoption by over 90 countries especially in the B.O.P.E. </p>
+            <p>> VETERAN. DESC.: The FN FAL (Feet or Armpit Licker) is a battle rifle in Arena Breakout, it’s basically the MK14’s older, meaner, and slightly less refined grandfather. It's built for one thing: throwing 7.62x51mm rounds downrange until the other guy stops moving while making sure the barrel goes rising to the moon. </p>
+        </div>
+
+        <a href="https://en.wikipedia.org/wiki/FN_FAL#:~:text=7.62%C3%9751mm%20NATO,gas%20piston%2C%20closed%20tilting%20breechblock" target="_blank" class="btn">
+            Wiki for Firearm Nerds (Like ME :D)
+        </a>
+        
+        <a href="https://www.youtube.com/watch?v=Q9JoHzlIAqs&pp=ygUGZm4gZmFs" target="_blank" class="btn">
+            Watch FAL Video (No really, the title is just FAL.)
+        </a>
+    </div>
+
+</body>
+<head>
+    <title>MK-14 EBR Database</title>
+    <style>
+        
+        body {
+            background-color: #1a1a1a; /* Dark tactical gray */
+            color: #dcdcdc; /* Light gray text */
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            border: 3px solid #4b5320; /* Army Green border */
+            background-color: #2b2b2b;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1); 
+        }
+
+        h1 {
+            border-bottom: 2px dashed #4b5320;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #78866b; /* Sage green */
+        }
+
+        /* THE IMAGE  */
+        img {
+            width: 80%;
+            max-width: 600px;
+            border: 5px solid #000;
+            margin: 20px 0;
+        }
+
+        /* THE DETAILS BOX */
+        .specs {
+            background-color: #000;
+            color: #0f0; /* Classic terminal green */
+            padding: 15px;
+            border-left: 5px solid #4b5320;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background-color: #4b5320;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid #6b7340;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #5c6628;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="margin-top: 100px;">
+        <h1>Rat's SMG: MP5</h1>
+
+        <img src="https://i.ytimg.com/vi/IjoiXYSyNk8/maxresdefault.jpg">
+        
+        <div class="specs">
+            <p>> WEAPON: MP5 (SMG)</p>
+            <p>> ORIGIN: Germany</p>
+            <p>> CALIBER: 9×19mm</p>
+            <p>> ROLE: SMG / Close Range</p>
+            <p>> STATUS: OPERATIONAL ("Who dares wins.")</p>
+            <p>> TAC. DESC.: The Heckler & Koch MP5 is a 9x19mm Parabellum submachine gun developed in the 1960s. While most SMGs of that era were simple "spray and pray" tools, the MP5 was designed like a miniature rifle, making it the go-to choice for elite units like the SAS and Navy SEALs for decades. </p>
+            <p>> VETERAN. DESC.: The Heckler & Koch MP5 is a 9x19mm submachine gun that became a a meme for those leg lickers out there. In Arena Breakout, it’s the "budget king" that can punch way above its weight class if you know how to tickle the right spots (and by that, I mean the enemy's legs). </p>
+            <p>> BONUS: This is the only gun in recorded history to be used to mag dump two of them on a terrorist who fell from the stairs.</p>
+        </div>
+
+        <a href="https://www.heckler-koch.com/en/Products/Military%20and%20Law%20Enforcement/Submachine%20guns/MP5" target="_blank" class="btn">
+            Official H&K Website
+        </a>
+        
+        <a href="https://www.youtube.com/watch?v=IjoiXYSyNk8" target="_blank" class="btn">
+            Watch Demonstration Video
+        </a>
+    </div>
+
+</body>
+
+<button class="btn" onclick="rollForLoot()" 
+    style="background-color: #d4af37; color: black; border: 2px solid #8b4513; 
+    padding: 30px 60px; font-size: 24px; font-weight: bold; cursor: pointer;">
+    [ ROLL FOR RANDOM WEAPON ]
+</button>
+
+<script>
+function rollForLoot() {
+    const armory = [
+        "MK-14 EBR", 
+        "FAL", 
+        "H416", 
+        "MAHORAGA", 
+        "MP5", 
+        "King Von's G18C",
+        "A Rusty Knife (Screw you! >:3)"
+    ];
+
+    // This line will summon Mahoraga
+    const randomGun = armory[Math.floor(Math.random() * armory.length)];
+
+    // The final message
+    alert("Congratulations! You get the " + randomGun);
+}
+</script>
+</html>
