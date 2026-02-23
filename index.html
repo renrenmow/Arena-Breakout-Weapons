@@ -1,24 +1,24 @@
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<div id="intro-layer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+<div id="intro-layer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     
     <div style="width: 80%; max-width: 900px; aspect-ratio: 16/9; border: 2px solid #4b5320;">
         <iframe id="yt-player" width="100%" height="100%" 
-    src="https://www.youtube-nocookie.com/embed/rY_aFK8aJoc?autoplay=1&mute=1&controls=0&enablejsapi=1" 
-    referrerpolicy="strict-origin-when-cross-origin"
-    frameborder="0" 
-    allow="autoplay; encrypted-media">
-</iframe>
-</iframe>
+            src="https://www.youtube-nocookie.com/embed/rY_aFK8aJoc?autoplay=1&mute=1&controls=0&enablejsapi=1" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            frameborder="0" 
+            allow="autoplay; encrypted-media">
+        </iframe>
     </div>
 
-    <button onclick="endIntro()" style="position: absolute; bottom: 30px; right: 30px; background: transparent; color: #4b5320; border: 1px solid #4b5320; padding: 10px 20px; cursor: pointer; font-family: courier;">
-        [ SKIP INTRO ]
-    </button>
-</div>
+    <div style="margin-top: 20px; display: flex; gap: 20px;">
+        <button id="mute-btn" onclick="toggleMute()" style="background: transparent; color: #d4af37; border: 1px solid #d4af37; padding: 10px 20px; cursor: pointer; font-family: courier;">
+            [ UNMUTE AUDIO ]
+        </button>
 
-<button id="mute-btn" onclick="toggleMute()" style="position: absolute; bottom: 30px; left: 30px; background: transparent; z-index: 9999 color: #d4af37; border: 1px solid #d4af37; padding: 10px 20px; cursor: pointer; font-family: courier;">
-    [ UNMUTE AUDIO ]
-</button>
+        <button onclick="endIntro()" style="background: transparent; color: #4b5320; border: 1px solid #4b5320; padding: 10px 20px; cursor: pointer; font-family: courier;">
+            [ SKIP INTRO ]
+        </button>
+    </div>
+</div>
 
 <script>
     // 2. THE BRAIN UPGRADE
