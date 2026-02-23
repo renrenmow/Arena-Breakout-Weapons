@@ -45,13 +45,25 @@
     }, videoLength);
 
     function endIntro() {
-        var overlay = document.getElementById("intro-layer");
-        if(overlay) {
-            overlay.style.transition = "opacity 1s ease";
-            overlay.style.opacity = "0";
-            setTimeout(function() {
-                overlay.style.display = "none";
-            }, 1000);
+    var overlay = document.getElementById("intro-layer");
+    var iframe = document.getElementById('yt-player');
+
+    // TACTICAL MUTE: This sends the 'mute' command to the YouTube video
+    if (iframe) {
+        iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+    }
+
+    // FADE OUT EFFECT
+    if (overlay) {
+        overlay.style.transition = "opacity 1s ease";
+        overlay.style.opacity = "0";
+        
+        // Remove the layer entirely after the fade finishes
+        setTimeout(function() {
+            overlay.style.display = "none";
+        }, 1000);
+    }
+}
         }
     }
 </script>
