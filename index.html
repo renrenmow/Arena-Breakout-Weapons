@@ -3,10 +3,11 @@
     
     <div style="width: 80%; max-width: 900px; aspect-ratio: 16/9; border: 2px solid #4b5320;">
         <iframe id="yt-player" width="100%" height="100%" 
-    src="https://www.youtube-nocookie.com/embed/rY_aFK8aJoc?autoplay=1&mute=1&controls=0" 
+    src="https://www.youtube-nocookie.com/embed/rY_aFK8aJoc?autoplay=1&mute=1&controls=0&enablejsapi=1" 
     referrerpolicy="strict-origin-when-cross-origin"
     frameborder="0" 
     allow="autoplay; encrypted-media">
+</iframe>
 </iframe>
     </div>
 
@@ -15,23 +16,43 @@
     </button>
 </div>
 
+<button id="mute-btn" onclick="toggleMute()" style="position: absolute; bottom: 30px; left: 30px; background: transparent; color: #d4af37; border: 1px solid #d4af37; padding: 10px 20px; cursor: pointer; font-family: courier;">
+    [ UNMUTE AUDIO ]
+</button>
+
 <script>
-    // --- SETTINGS ---
-    // How long is the video? (in milliseconds)
-    // 1000 = 1 second. So 5000 is 5 seconds.
-    var videoLength = 60000; 
+    // 2. THE BRAIN UPGRADE
+    var videoLength = 26000; // Set to 26 seconds for your MK14 video
+    
+    // This function sends a message to the YouTube Iframe to unmute
+    function toggleMute() {
+        var iframe = document.getElementById('yt-player');
+        var button = document.getElementById('mute-btn');
+        
+        // We send a "command" to the YouTube player
+        // This is like pressing the 'm' key on your keyboard for the video
+        iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+        
+        // Change the button text so they know it worked
+        button.innerText = "[ AUDIO ACTIVE ]";
+        button.style.color = "#00ff00";
+        button.style.borderColor = "#00ff00";
+    }
+
+    // Timer to close the intro
     setTimeout(function() {
         endIntro();
     }, videoLength);
 
     function endIntro() {
         var overlay = document.getElementById("intro-layer");
-        overlay.style.transition = "opacity 1s ease"; // Smooth fade out
-        overlay.style.opacity = "0"; // Make invisible
-        
-        setTimeout(function() {
-            overlay.style.display = "none"; 
-        }, 1000); 
+        if(overlay) {
+            overlay.style.transition = "opacity 1s ease";
+            overlay.style.opacity = "0";
+            setTimeout(function() {
+                overlay.style.display = "none";
+            }, 1000);
+        }
     }
 </script>
     <header style="text-align: left; max-width: 1000px; margin: 0 auto 40px auto; padding: 20px; color: #78866b; border-bottom: 1px solid #4b5320;">
